@@ -10,12 +10,11 @@
 //
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
-#include <dt-bindings/zmk/mouse.h>
-#include <behaviors.dtsi>
 #include <behaviors/mouse_keys.dtsi>
+#include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/mouse.h>
 
 #define BASE 0
 #define NAV  1
@@ -95,19 +94,11 @@
     };
 
     macros {
-        gif: gif {
-            label = "giphy";
+        flash: flash {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LSHFT>,
-                <&macro_tap>,
-                <&kp N2>,
-                <&macro_release>,
-                <&kp LSHFT>,
-                <&macro_tap>,
-                <&kp G &kp I &kp F>;
+            bindings = <&bootloader>;
+            label = "FLASH";
         };
     };
 
@@ -149,10 +140,10 @@
 
         // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
-        base_layer {
+        Qwery {
             // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 
-            label = "BASE";
+            label = "Qwery";
 
             // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
             //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
@@ -166,19 +157,19 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-       &kp Q           &kp W           &kp E               &kp R             &kp T           &kp Y         &kp U              &kp I                &kp O                    &hm LG(LS(V)) P
-       &hm LEFT_GUI A  &hm LEFT_ALT S  &hm LEFT_CONTROL D  &hm LEFT_SHIFT F  &kp G           &kp H         &hm RIGHT_SHIFT J  &hm RIGHT_CONTROL K  &hm RIGHT_ALT L          &as COLON SEMICOLON
-&to 4  &kp Z           &kp X           &kp C               &kp V             &kp B           &kp N         &kp M              &as LESS_THAN COMMA  &as GREATER_THAN PERIOD  &as QUESTION SLASH   &as DOUBLE_QUOTES SINGLE_QUOTE
-                                       &ltq 1 BACKSPACE    &ltq 3 TAB        &ltq 2 SPACE    &ltq 2 SPACE  &ltq 3 ENTER       &ltq 4 DELETE
+                 &kp Q           &kp W           &kp E               &kp R             &kp T           &kp Y         &kp U              &kp I                &kp O                    &kp P
+                 &hm LEFT_GUI A  &hm LEFT_ALT S  &hm LEFT_CONTROL D  &hm LEFT_SHIFT F  &kp G           &kp H         &hm RIGHT_SHIFT J  &hm RIGHT_CONTROL K  &hm RIGHT_ALT L          &as COLON SEMICOLON
+&as TILDE GRAVE  &kp Z           &kp X           &kp C               &kp V             &kp B           &kp N         &kp M              &as LESS_THAN COMMA  &as GREATER_THAN PERIOD  &as QUESTION SLASH   &as DOUBLE_QUOTES SINGLE_QUOTE
+                                                 &ltq 1 BACKSPACE    &ltq 3 TAB        &ltq 2 SPACE    &ltq 2 SPACE  &ltq 3 ENTER       &ltq 4 DELETE
             >;
         };
 
         // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
-        nav_layer {
+        Navi {
             // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 
-            label = "NAVI";
+            label = "Navi";
 
             // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
             //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
@@ -192,19 +183,19 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-        &trans  &trans        &kp UP    &kp EQUAL  &trans               &bt BT_SEL 0          &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-        &trans  &kp LEFT      &kp DOWN  &kp RIGHT  &kp C_VOLUME_UP      &kp C_BRIGHTNESS_INC  &bt BT_CLR    &trans        &trans        &trans
-&trans  &trans  &out OUT_TOG  &trans    &trans     &kp C_VOLUME_DOWN    &kp C_BRIGHTNESS_DEC  &trans        &trans        &trans        &trans        &out OUT_TOG
-                              &trans    &trans     &trans               &trans                &trans        &trans
+        &trans        &trans        &trans            &trans          &kp K_MUTE           &trans                &kp HOME        &kp UP_ARROW    &kp PAGE_UP      &trans
+        &kp LEFT_GUI  &kp LEFT_ALT  &kp LEFT_CONTROL  &kp LEFT_SHIFT  &kp C_VOLUME_UP      &kp C_BRIGHTNESS_INC  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans
+&trans  &trans        &trans        &trans            &trans          &kp C_VOLUME_DOWN    &kp C_BRIGHTNESS_DEC  &kp END         &trans          &kp PAGE_DOWN    &trans  &trans
+                                    &trans            &trans          &trans               &trans                &trans          &trans
             >;
         };
 
         // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
-        sim_layer {
+        Symbol {
             // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 
-            label = "SYM";
+            label = "Symbol";
 
             // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
             //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
@@ -218,19 +209,19 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-               &kp EXCL    &kp AT        &kp HASH  &kp DLLR  &kp PRCNT         &kp CARET  &kp AMPS         &kp ASTERISK           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-               &kp ESC     &kp CAPSLOCK  &kp HOME  &kp END   &kp UNDERSCORE    &kp MINUS  &kp RIGHT_SHIFT  &kp PAGE_UP            &kp PAGE_DOWN         &kp INSERT
-&kp LA(SPACE)  &kp DELETE  &trans        &trans    &trans    &kp TILDE         &kp GRAVE  &as PLUS EQUAL   &as DOUBLE_QUOTES SQT  &as PIPE BACKSLASH    &kp BACKSPACE          &trans
-                                         &trans    &trans    &trans            &trans     &trans           &trans
+        &kp EXCL       &kp AT        &kp HASH  &kp DLLR  &kp PRCNT         &kp CARET  &kp AMPS         &kp ASTERISK           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
+        &kp ESC        &kp CAPSLOCK  &kp HOME  &kp END   &kp UNDERSCORE    &kp MINUS  &kp RIGHT_SHIFT  &kp PAGE_UP            &kp PAGE_DOWN         &kp INSERT
+&trans  &kp BACKSPACE  &trans        &trans    &trans    &kp TILDE         &kp GRAVE  &as PLUS EQUAL   &as DOUBLE_QUOTES SQT  &as PIPE BACKSLASH    &kp DELETE             &trans
+                                     &trans    &trans    &trans            &trans     &trans           &trans
             >;
         };
 
         // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
-        adjust_layer {
+        Modify {
             // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 
-            label = "ADJ";
+            label = "Modify";
 
             // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
             //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
@@ -253,10 +244,10 @@
 
         // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
-        tvp1_layer {
+        Mouse {
             // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 
-            label = "TVP 1";
+            label = "Mouse";
 
             // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
             //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
@@ -270,14 +261,33 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-       &none   &msc SCRL_UP   &mmv MOVE_UP  &msc SCRL_DOWN   &none    &none  &none  &none  &none  &none
-       &none   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT   &none    &none  &none  &none  &none  &none
-&to 0  &none   &none    &none   &none    &none    &none  &none  &none  &none  &none  &none
-                        &trans  &mkp LCLK  &mkp RCLK    &trans  &trans  &trans
+        &none  &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN   &none        &none      &none      &none   &none  &none
+        &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none        &none      &none      &none   &none  &none
+&trans  &none  &none           &none           &none            &none        &none      &none      &none   &none  &none  &none
+                               &trans          &mkp LCLK        &mkp RCLK    &mkp LCLK  &mkp RCLK  &trans
             >;
         };
 
-        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+        Flash {
+            bindings = <
+        &flash  &trans  &trans  &trans  &trans    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+        &trans  &trans  &trans  &trans  &trans    &trans        &trans        &trans        &trans        &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &bt BT_CLR    &trans        &trans        &trans        &bt BT_CLR_ALL  &trans
+                        &trans  &trans  &trans    &trans        &trans        &trans
+            >;
 
+            label = "Flash";
+        };
+
+        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        flash {
+            if-layers = <2 3>;
+            then-layer = <5>;
+        };
     };
 };
